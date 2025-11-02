@@ -1,0 +1,66 @@
+
+import type { AppItem } from './types';
+import { AppCategory } from './types';
+
+export const MOCK_DATA: AppItem[] = [
+  {
+    id: '1',
+    name: 'محرر الصور الاحترافي',
+    category: AppCategory.App,
+    iconUrl: 'https://picsum.photos/seed/app1/200/200',
+    downloads: 1500000,
+    version: '2.5.1',
+    uploadDate: '2023-10-26',
+    description: 'تطبيق قوي لتحرير الصور مع مجموعة واسعة من الأدوات والفلاتر. سهل الاستخدام للمبتدئين والمحترفين على حد سواء. قم بتحويل صورك العادية إلى أعمال فنية مذهلة ببضع نقرات فقط.',
+  },
+  {
+    id: '2',
+    name: 'سباق الصحراء',
+    category: AppCategory.Game,
+    iconUrl: 'https://picsum.photos/seed/game1/200/200',
+    downloads: 3250000,
+    version: '1.8.3',
+    uploadDate: '2023-09-15',
+    description: 'لعبة سباق سيارات مثيرة في بيئات صحراوية خلابة. تنافس مع لاعبين من جميع أنحاء العالم، وقم بترقية سيارتك، وأثبت أنك ملك الطريق. رسومات عالية الجودة وتجربة لعب غامرة.',
+  },
+  {
+    id: '3',
+    name: 'مدير المهام',
+    category: AppCategory.Software,
+    iconUrl: 'https://picsum.photos/seed/software1/200/200',
+    downloads: 85000,
+    version: '4.0.0',
+    uploadDate: '2023-11-01',
+    description: 'برنامج قوي لإدارة المشاريع والمهام الشخصية. نظم عملك، وتتبع تقدمك، وتعاون مع فريقك بكفاءة. يدعم المزامنة عبر الأجهزة لتبقى على اطلاع دائم.',
+  },
+  {
+    id: '4',
+    name: 'مغامرة الفضاء',
+    category: AppCategory.Game,
+    iconUrl: 'https://picsum.photos/seed/game2/200/200',
+    downloads: 500000,
+    version: '1.2.0',
+    uploadDate: '2023-08-20',
+    description: 'انطلق في رحلة ملحمية عبر المجرة. استكشف كواكب غريبة، وقاتل الأعداء، واكشف أسرار الكون. قصة مشوقة وأسلوب لعب فريد من نوعه.',
+  },
+  {
+    id: '5',
+    name: 'تعلم اللغات',
+    category: AppCategory.App,
+    iconUrl: 'https://picsum.photos/seed/app2/200/200',
+    downloads: 2100000,
+    version: '3.1.5',
+    uploadDate: '2023-10-10',
+    description: 'أفضل طريقة لتعلم لغة جديدة. دروس تفاعلية، وتمارين ممتعة، وتقنيات حديثة لمساعدتك على إتقان أي لغة تريدها في وقت قصير.',
+  },
+  {
+    id: '6',
+    name: 'نظام المحاسبة',
+    category: AppCategory.Software,
+    iconUrl: 'https://picsum.photos/seed/software2/200/200',
+    downloads: 45000,
+    version: '2.2.1',
+    uploadDate: '2023-07-30',
+    description: 'برنامج محاسبة شامل للشركات الصغيرة والمتوسطة. إدارة الفواتير، وتتبع النفقات، وإنشاء التقارير المالية بكل سهولة ودقة.',
+  },
+];
