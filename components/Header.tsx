@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../App';
 
 interface HeaderProps {
   searchQuery: string;
@@ -12,16 +14,40 @@ const FilterIcon: React.FC = () => (
     </svg>
 );
 
-
 export const Header: React.FC<HeaderProps> = ({ searchQuery, setSearchQuery, onFilterClick }) => {
+  const { isLoggedIn, user, logout } = useAuth();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const navigate = useNavigate();
+  
   return (
     <header className="fixed top-0 left-0 right-0 z-20 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm shadow-sm">
       <div className="container mx-auto px-4 py-3">
         <div className="flex justify-between items-center mb-3">
           <h1 className="text-xl font-bold text-blue-600 dark:text-blue-400">App Hub</h1>
-          <button className="text-sm font-semibold text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 transition-colors">
-            تسجيل الدخول
-          </button>
+          
+          {isLoggedIn && user ? (
+            <div className="relative">
+                <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="flex items-center space-x-2 space-x-reverse">
+                    <img src={user.avatarUrl} alt="user avatar" className="w-8 h-8 rounded-full" />
+                    <span className="hidden sm:inline text-sm font-semibold text-gray-600 dark:text-gray-300">{user.name}</span>
+                </button>
+                {isMenuOpen && (
+                    <div className="absolute left-0 sm:right-0 sm:left-auto mt-2 w-48 bg-white dark:bg-gray-800 rounded-md shadow-lg py-1 z-20" onMouseLeave={() => setIsMenuOpen(false)}>
+                        <button onClick={() => { navigate('/admin'); setIsMenuOpen(false); }} className="block w-full text-right px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">
+                           لوحة التحكم
+                        </button>
+                        <button onClick={() => { logout(); setIsMenuOpen(false); }} className="block w-full text-right px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">
+                            تسجيل الخروج
+                        </button>
+                    </div>
+                )}
+            </div>
+          ) : (
+            <button onClick={() => navigate('/login')} className="text-sm font-semibold text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 transition-colors">
+                تسجيل الدخول
+            </button>
+          )}
+
         </div>
         <div className="flex items-center space-x-2 space-x-reverse">
             <div className="relative flex-grow">

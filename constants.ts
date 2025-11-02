@@ -1,8 +1,7 @@
-
 import type { AppItem } from './types';
 import { AppCategory } from './types';
 
-export const MOCK_DATA: AppItem[] = [
+export const INITIAL_MOCK_DATA: AppItem[] = [
   {
     id: '1',
     name: 'محرر الصور الاحترافي',
